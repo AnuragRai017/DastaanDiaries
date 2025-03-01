@@ -525,7 +525,7 @@ export default function AdminDashboard(): JSX.Element {
                   <button
                     onClick={handleUpdateAvatar}
                     disabled={!avatarFile || isUploading}
-                    className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-hover disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isUploading ? 'Updating...' : 'Update Avatar'}
                   </button>
@@ -635,9 +635,10 @@ export default function AdminDashboard(): JSX.Element {
                 <div>
                   <label className="block text-sm font-medium mb-2">Content</label>
                   <Editor
-                    apiKey={import.meta.env.VITE_TINYMCE_API_KEY}
+                    id="tiny-editor-admin"
+                    tinymceScriptSrc="/tinymce/tinymce.min.js"
                     init={{
-                      height: 400,
+                      height: 500,
                       menubar: false,
                       plugins: [
                         'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
@@ -648,7 +649,7 @@ export default function AdminDashboard(): JSX.Element {
                         'bold italic forecolor | alignleft aligncenter ' +
                         'alignright alignjustify | bullist numlist outdent indent | ' +
                         'removeformat | help',
-                      content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif; font-size: 14px; }'
+                      content_style: 'body { font-family:Inter,Arial,sans-serif; font-size:16px }'
                     }}
                     value={postContent}
                     onEditorChange={setPostContent}
@@ -876,9 +877,9 @@ export default function AdminDashboard(): JSX.Element {
 
       {/* Delete Post Confirmation Dialog */}
       {showDeletePostDialog && selectedPost && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-background-primary rounded-lg p-6 max-w-sm w-full shadow-xl">
-            <h3 className="text-lg font-medium text-text-primary mb-4">
+        <div className="fixed inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="bg-background-primary rounded-lg p-6 max-w-sm w-full shadow-xl border border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-bold text-text-primary mb-4">
               Delete Post
             </h3>
             <p className="text-text-secondary mb-6">
@@ -887,13 +888,13 @@ export default function AdminDashboard(): JSX.Element {
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setShowDeletePostDialog(false)}
-                className="px-4 py-2 text-text-primary hover:text-text-primary"
+                className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
               >
                 Cancel
               </button>
               <button
                 onClick={handleDeletePost}
-                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors shadow-md"
               >
                 Delete
               </button>
@@ -904,9 +905,9 @@ export default function AdminDashboard(): JSX.Element {
 
       {/* Delete User Confirmation Dialog */}
       {showDeleteUserDialog && selectedUser && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-background-primary rounded-lg p-6 max-w-sm w-full shadow-xl">
-            <h3 className="text-lg font-medium text-text-primary mb-4">
+        <div className="fixed inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="bg-background-primary rounded-lg p-6 max-w-sm w-full shadow-xl border border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-bold text-text-primary mb-4">
               Delete User Account
             </h3>
             <p className="text-text-secondary mb-6">
@@ -915,13 +916,13 @@ export default function AdminDashboard(): JSX.Element {
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setShowDeleteUserDialog(false)}
-                className="px-4 py-2 text-text-primary hover:text-text-primary"
+                className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
               >
                 Cancel
               </button>
               <button
                 onClick={handleDeleteUser}
-                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors shadow-md"
               >
                 Delete User
               </button>
@@ -932,9 +933,9 @@ export default function AdminDashboard(): JSX.Element {
 
       {/* Delete Comment Confirmation Dialog */}
       {showDeleteCommentDialog && selectedComment && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-background-primary rounded-lg p-6 max-w-sm w-full shadow-xl">
-            <h3 className="text-lg font-medium text-text-primary mb-4">
+        <div className="fixed inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="bg-background-primary rounded-lg p-6 max-w-sm w-full shadow-xl border border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-bold text-text-primary mb-4">
               Delete Comment
             </h3>
             <p className="text-text-secondary mb-6">
@@ -943,13 +944,13 @@ export default function AdminDashboard(): JSX.Element {
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setShowDeleteCommentDialog(false)}
-                className="px-4 py-2 text-text-primary hover:text-text-primary"
+                className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
               >
                 Cancel
               </button>
               <button
                 onClick={handleDeleteComment}
-                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors shadow-md"
               >
                 Delete
               </button>
