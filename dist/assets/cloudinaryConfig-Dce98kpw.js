@@ -1,0 +1,1 @@
+const o="Hh6uEpolDKMYw4L1C0Aa3rKiQEY";async function h(t){try{const r=`timestamp=${t}${o}`,e=new TextEncoder().encode(r),n=await window.crypto.subtle.digest("SHA-1",e);return Array.from(new Uint8Array(n)).map(a=>a.toString(16).padStart(2,"0")).join("")}catch(r){throw console.error("Error generating signature:",r),r}}export{h as g};
