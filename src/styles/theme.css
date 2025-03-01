@@ -1,0 +1,124 @@
+:root {
+  --theme-transition: all 0.3s ease-in-out;
+  --theme-change: 0;
+}
+
+.theme-transition {
+  transition: var(--theme-transition);
+}
+
+/* Theme-specific animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Blog card animations */
+.blog-card {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* Loading animations */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+/* Theme transition effects */
+.theme-change-active {
+  animation: themeChange 0.3s ease-in-out;
+}
+
+@keyframes themeChange {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Dark theme specific styles */
+.dark-theme {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent-color: #818cf8;
+  --input-border: #334155;
+  --button-hover: #6366f1;
+}
+
+/* Light theme specific styles */
+.light-theme {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --accent-color: #6366f1;
+  --input-border: #e2e8f0;
+  --button-hover: #4f46e5;
+}
+
+/* Blog content animations */
+.blog-content {
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Loading spinner animation */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Form animations */
+@keyframes formAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-animate-in {
+  animation: formAppear 0.6s ease-out forwards;
+}
+
+/* Input focus effects */
+.input-focus-effect {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.input-focus-effect:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 4px var(--accent-color/20);
+}
+
+/* Button hover effects */
+.button-hover-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-hover-effect:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px var(--accent-color);
+}
