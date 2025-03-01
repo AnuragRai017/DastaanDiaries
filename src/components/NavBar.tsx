@@ -2,6 +2,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import logo from '../assets/logo.svg';
 
 export default function NavBar() {
   const { user, signOut } = useAuth();
@@ -73,7 +74,7 @@ export default function NavBar() {
               className="group flex items-center space-x-2 text-2xl font-bold transition-all duration-300"
             >
               <div className="relative overflow-hidden rounded-lg">
-                <img src="/src/assets/logo.svg" alt="DastaanDiaries Logo" className="w-8 h-8 filter drop-shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3" />
+                <img src={logo} alt="DastaanDiaries Logo" className="w-8 h-8 filter drop-shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3" />
               </div>
               <span className={`bg-clip-text text-transparent bg-gradient-to-r ${theme === 'light' ? 'from-gray-800 to-black' : 'from-white to-gray-300'} group-hover:from-accent group-hover:to-white transition-all duration-300`}>
               DastaanDiaries
