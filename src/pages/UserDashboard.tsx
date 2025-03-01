@@ -373,7 +373,7 @@ export default function UserDashboard() {
               </label>
               <Editor
                 id="tiny-editor"
-                tinymceScriptSrc="/tinymce/tinymce.min.js"
+                tinymceScriptSrc="https://cdn.jsdelivr.net/npm/tinymce@6.8.3/tinymce.min.js"
                 init={{
                   height: 500,
                   menubar: false,

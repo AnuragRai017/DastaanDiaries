@@ -636,7 +636,7 @@ export default function AdminDashboard(): JSX.Element {
                   <label className="block text-sm font-medium mb-2">Content</label>
                   <Editor
                     id="tiny-editor-admin"
-                    tinymceScriptSrc="/tinymce/tinymce.min.js"
+                    tinymceScriptSrc="https://cdn.jsdelivr.net/npm/tinymce@6.8.3/tinymce.min.js"
                     init={{
                       height: 500,
                       menubar: false,
